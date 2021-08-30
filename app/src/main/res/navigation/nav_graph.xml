@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainPageFragment">
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.example.bloggingapp.ui.MainPageFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addComentFragment"
+        android:name="com.example.bloggingapp.ui.AddComentFragment"
+        android:label="fragment_add_coment"
+        tools:layout="@layout/fragment_add_coment" >
+        <action
+            android:id="@+id/action_addComentFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment"
+            app:popUpTo="@id/detailPostFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addPostFragment2"
+        android:name="com.example.bloggingapp.ui.AddPostFragment"
+        android:label="fragment_add_post2"
+        tools:layout="@layout/fragment_add_post2" >
+        <action
+            android:id="@+id/action_addPostFragment2_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/mainPageFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailPostFragment"
+        android:name="com.example.bloggingapp.ui.DetailPostFragment"
+        android:label="fragment_detail_post"
+        tools:layout="@layout/fragment_detail_post" >
+        <action
+            android:id="@+id/action_detailPostFragment_to_addComentFragment"
+            app:destination="@id/addComentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.bloggingapp.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
+</navigation>
