@@ -2,7 +2,7 @@
     <string name="app_name">BloggingApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name= "postBody"> quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum</string>
+    <string name= "postBody">   nostrum</string>
 
     <string name="placeholder_title_body"> &lt;b>%1$s&lt;/b> %2$s</string>
     <string name="placeholder_comment_name_email"> &lt;b>%1$s&lt;/b>    %2$s</string>

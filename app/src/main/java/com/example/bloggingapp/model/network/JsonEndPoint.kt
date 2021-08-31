@@ -9,24 +9,23 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface JsonEndPoint {
-
-    // Calls the api to retrieve all the posts
+    // makes a a call to the API to retrive all the post
     @GET("posts")
-    suspend fun getAllPosts(): List<Post>
+   suspend fun getAllPosts():List<Post>
 
-    // Retrieves all the photos from the api
+   // this is used to retrieve all the photo
     @GET("photos")
-    suspend fun getAllPhotos(): List<Photo>
-
-    // gets the list of comment based on the user id
+   suspend fun getAllPhotos():List<Photo>
+    //this is used to retrieve all the comment from the API
     @GET("comments")
-    suspend fun getAllComments(): List<Comment>
+   suspend fun getAllComments():List<Comment>
 
-    // Uploads newly created post to the api
-    @POST("posts")
-    suspend fun createNewPost(@Body post: Post): Post
+   //this is used to creat a new post on the API
+   @POST("post")
+   suspend fun createNewPost(@Body post:Post):Post
 
-    // Uploads newly added comment to the api
-    @POST("posts/{id}/comments")
-    suspend fun addNewComment(@Path("id") id: Int, @Body comment: Comment): Comment
+   //this is used to add new comment to the api
+   @POST("post/{id}/comments")
+   suspend fun addNewComment(@Path("id") id: Int, @Body comment: Comment):Comment
+
 }

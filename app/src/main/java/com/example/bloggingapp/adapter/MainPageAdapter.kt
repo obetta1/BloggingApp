@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.text.HtmlCompat
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bloggingapp.R
 import com.example.bloggingapp.adapter.utilities.getImages
 import com.example.bloggingapp.adapter.utilities.loadImage
 import com.example.bloggingapp.model.data.PostAndPhoto
 import com.example.bloggingapp.ui.RecyclerViewOnClickListener
+
 import java.util.*
 
 class MainPageAdapter(
@@ -121,7 +123,9 @@ class MainPageAdapter(
 
             // Sets a clickListener for the cardView which launches the postDetails activity
             btnComment.setOnClickListener {
+
                 listener.onRecyclerViewClickListener(it, post)
+
             }
 
             // this is used to set the click listener the body of the post to expand or collapse it

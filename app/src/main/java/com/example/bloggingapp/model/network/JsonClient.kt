@@ -6,9 +6,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class JsonClient {
+object JsonClient {
 
-    fun getJsconEndPoint(): JsonEndPoint{
+    fun getJsonEndPoint(): JsonEndPoint{
 
         // HttpLogging for network inspection
         var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
