@@ -24,6 +24,9 @@
             app:popUpTo="@id/detailPostFragment"
             app:popUpToInclusive="true"
             />
+        <argument
+            android:name="DetailPost"
+            app:argType="com.example.bloggingapp.model.data.DetailPost" />
     </fragment>
     <fragment
         android:id="@+id/addPostFragment2"
@@ -44,6 +47,9 @@
         <action
             android:id="@+id/action_detailPostFragment_to_addComentFragment"
             app:destination="@id/addComentFragment" />
+        <argument
+            android:name="DetailPost"
+            app:argType="com.example.bloggingapp.model.data.DetailPost" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

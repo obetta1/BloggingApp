@@ -10,8 +10,8 @@ import com.example.bloggingapp.App
 import com.example.bloggingapp.R
 import com.example.bloggingapp.ViewModelFactory
 import com.example.bloggingapp.adapter.MainPageAdapter
-import com.example.bloggingapp.adapter.utilities.createListenerForComments
-import com.example.bloggingapp.adapter.utilities.queryAllPosts
+import com.example.bloggingapp.utilities.createListenerForComments
+import com.example.bloggingapp.utilities.queryAllPosts
 import com.example.bloggingapp.model.data.PostAndPhoto
 import com.example.bloggingapp.viewmodel.MainPageViewModel
 import kotlinx.android.synthetic.main.fragment_search.*

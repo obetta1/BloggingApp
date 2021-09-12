@@ -16,6 +16,7 @@
         android:layout_marginBottom="7dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="30dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -37,75 +38,55 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/txtCommentName"
-        android:layout_width="0dp"
+        android:id="@+id/txtPostName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Obama"
+        android:text="Blessing kuka"
         android:textColor="#070707"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/materialCardView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
 
     <EditText
-        android:id="@+id/edtCommentBody"
+        android:id="@+id/edtNewPostTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="Post Title"
+        android:inputType="textPersonName"
+        android:textColorHint="#0B0A0A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <EditText
+        android:id="@+id/edtNewPostBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Enter new comment"
+        android:hint="Write your post..."
         android:inputType="textMultiLine"
         android:textColorHint="#070707"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNewPostTitle"
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/btnCreateComment"
+        android:id="@+id/btnCreatePost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#4CAF50"
-        android:text="Add post"
+        android:text="Create New Post"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCommentBody" />
-
-    <TextView
-        android:id="@+id/txtCommentEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"
-        android:text="barakobama@gmail.com"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="@+id/txtCommentName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtCommentName"
-        app:layout_constraintTop_toBottomOf="@+id/txtCommentName"
-        app:layout_constraintVertical_bias="0.18" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="120dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="222dp" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

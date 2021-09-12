@@ -1,6 +1,6 @@
 package com.example.bloggingapp.model.network
 
-import com.example.bloggingapp.adapter.utilities.BASE_URL
+import com.example.bloggingapp.utilities.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

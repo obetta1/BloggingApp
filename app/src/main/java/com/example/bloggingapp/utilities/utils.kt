@@ -1,6 +1,5 @@
-package com.example.bloggingapp.adapter.utilities
+package com.example.bloggingapp.utilities
 
-import android.app.DownloadManager
 import android.content.Context
 import android.view.View
 import android.widget.ImageView
@@ -15,8 +14,8 @@ import com.example.bloggingapp.R
 import com.example.bloggingapp.adapter.MainPageAdapter
 import com.example.bloggingapp.model.data.DetailPost
 import com.example.bloggingapp.model.data.PostAndPhoto
-import com.example.bloggingapp.ui.MainPageFragment
-import retrofit2.http.Query
+import com.example.bloggingapp.ui.MainPageFragmentDirections
+import com.example.bloggingapp.ui.SearchFragmentDirections
 
 /*this function is used to load  image into a given
 *imageview, generate a url using the
@@ -38,17 +37,17 @@ fun loadImage(context: Context, imgUrl: String, view: ImageView) {
 // Holds a list of local images used to represent a particular user
 fun getImages(): MutableList<Int> {
     return mutableListOf(
-        R.drawable.hermionedhface,
-        R.drawable.danearys,
-        R.drawable.oliver,
-        R.drawable.carlsen_opt,
-        R.drawable.naomi,
-        R.drawable.jack,
-        R.drawable.homeland,
-        R.drawable.anthony,
-        R.drawable.lebron,
-        R.drawable.jack,
-        R.drawable.serena
+        R.drawable.ben_photo,
+        R.drawable.uk_photo,
+        R.drawable.criss,
+        R.drawable.ruth,
+        R.drawable.okezi,
+        R.drawable.mesi,
+        R.drawable.nema,
+        R.drawable.godday,
+        R.drawable.recheal,
+        R.drawable.pugba,
+        R.drawable.rita
     )
 
 }
@@ -77,11 +76,26 @@ fun View.goto(id:Int){
 /* this is used to set button click listener for both
 *the  fragment and the main fragment
  */
-    fun createListenerForComments(view: View, post:PostAndPhoto, fragmentId : Int){
-        val postDetail = DetailPost(post.post.title, post.post.body, post.post.id)
-        when(fragmentId){
-            1 -> {
+    fun createListenerForComments(view: View, post:PostAndPhoto, fragmentId : Int) {
+    val postDetail = DetailPost(post.post.title, post.post.body, post.post.id)
+    when (fragmentId) {
+        1 -> {
+            val action = MainPageFragmentDirections.actionMainPageFragmentToDetailPostFragment(postDetail)
 
-            }
+            view.goto(action)
+        }
+        2 -> {
+            val action = SearchFragmentDirections.actionSearchFragmentToDetailPostFragment(postDetail)
+
+            view.goto(action)
         }
     }
+}
+    fun validatePostInput(postTitle: String, postBody: String): Boolean {
+        return when {
+            postTitle.isNotEmpty() && postBody.isNotEmpty()->  true
+            else -> false
+        }
+
+    }
+

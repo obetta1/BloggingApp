@@ -6,43 +6,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavArgs
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.util.Util
 import com.example.bloggingapp.App
 import com.example.bloggingapp.R
 import com.example.bloggingapp.ViewModelFactory
-import com.example.bloggingapp.adapter.DetailPostAdapter
-import com.example.bloggingapp.adapter.utilities.goto
+import com.example.bloggingapp.adapter.DetailPageAdapter
 import com.example.bloggingapp.model.data.Comment
 import com.example.bloggingapp.model.data.DetailPost
+import com.example.bloggingapp.utilities.goto
 import com.example.bloggingapp.viewmodel.DetailPostViewModel
 import kotlinx.android.synthetic.main.fragment_detail_post.*
 
 
 class DetailPostFragment : Fragment() {
-   // private var args by navArgs<DetailPostFragmentArds>
+    private val args by navArgs<DetailPostFragmentArgs>()
     private lateinit var detailPost: DetailPost
     private lateinit var viewmodel: DetailPostViewModel
-    private lateinit var detailPostAdapter: DetailPostAdapter
+    private lateinit var detailPostAdapter: DetailPageAdapter
     private val repository by lazy { App.repository }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       // detailPost = args.DetailPost
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
          val view = inflater.inflate(R.layout.fragment_detail_post, container, false)
-
+        detailPost = args.detailPost
         return view
 
     }
@@ -53,18 +45,19 @@ class DetailPostFragment : Fragment() {
         val viewModelFactory = ViewModelFactory(repository)
         viewmodel = ViewModelProvider(this, viewModelFactory)[DetailPostViewModel::class.java]
 
-        detailPostAdapter = DetailPostAdapter(requireContext())
+    //initailize the adapter and the set it to the recyclerView
+        detailPostAdapter = DetailPageAdapter(requireContext())
         postDetailRecycler.adapter = detailPostAdapter
-
+        /**
+         *  populate the various views usint the detailpost and sets an onclick listener to the
+         * floating action button to navigate to another fragment to add a new comment to the post
+         */
         postTitle.text = detailPost.title
         postBody.text = detailPost.body
 
         fab.setOnClickListener {
-
-           // val postDetail = ppost.title, post.post.body, post.post.id)
-          var action = this.findNavController().navigate(R.id.action_detailPostFragment_to_addComentFragment)
-            this.findNavController().navigate(action)
-
+            val action = DetailPostFragmentDirections.actionDetailPostFragmentToAddComentFragment(detailPost)
+            it.goto(action)
         }
 
 
@@ -79,9 +72,6 @@ class DetailPostFragment : Fragment() {
 
 }
 
-private fun NavController.navigate(action: Unit) {
-
-}
 
 
 

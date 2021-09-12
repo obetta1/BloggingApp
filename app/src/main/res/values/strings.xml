@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name= "postBody">   nostrum</string>
 
+
     <string name="placeholder_title_body"> &lt;b>%1$s&lt;/b> %2$s</string>
     <string name="placeholder_comment_name_email"> &lt;b>%1$s&lt;/b>    %2$s</string>
     <string name="placeholder_user_id">User ID: %1$d  ID: %2$d</string>

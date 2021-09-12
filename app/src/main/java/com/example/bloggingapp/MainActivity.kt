@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var toolbar : androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
 
-       // binding = ActivityMainBinding.inflate(layoutInflater)
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

@@ -9,10 +9,11 @@ import androidx.core.text.HtmlCompat
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bloggingapp.R
-import com.example.bloggingapp.adapter.utilities.getImages
-import com.example.bloggingapp.adapter.utilities.loadImage
+import com.example.bloggingapp.utilities.getImages
+import com.example.bloggingapp.utilities.loadImage
 import com.example.bloggingapp.model.data.PostAndPhoto
 import com.example.bloggingapp.ui.RecyclerViewOnClickListener
+
 
 import java.util.*
 
@@ -45,17 +46,20 @@ class MainPageAdapter(
         return cur
     }
 
+    // this function is used for the searching
     override fun getFilter(): Filter {
          return object :Filter(){
              override fun performFiltering(searchItem: CharSequence?): FilterResults {
                   val searchString = searchItem.toString()
-                 //checkif the search entry is empty befor performing search
+
+   //checkif the search entry is empty befor performing search
                  if(searchString.isEmpty()){
                      postAndPhotos = emptyArray<PostAndPhoto>().toMutableList()
                  }else{
                      postAndPhotos = _post
                      val initSearchedPost = mutableListOf<PostAndPhoto>()
 
+                     //searching through the post title if the new text is contained in the post title
                      for ( p in postAndPhotos){
                          if (p.post.title.toLowerCase(Locale.ROOT).trim().contains(searchString)){
                              initSearchedPost.add(p) }
@@ -74,17 +78,16 @@ class MainPageAdapter(
          }
     }
 
-
     inner class MainPageViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-
         private val txtPostTitle = itemView.findViewById<TextView>(R.id.txtPostTitle)
         private val txtPostBody = itemView.findViewById<TextView>(R.id.txtPostBody)
         private val imgPostSmall = itemView.findViewById<ImageView>(R.id.postSmallImage)
-        private val imgPostImage = itemView.findViewById<ImageView>(R.id.PostImage)
+       // private val imgPostImage = itemView.findViewById<ImageView>(R.id.PostImage)
         private val txtUserId = itemView.findViewById<TextView>(R.id.userId)
         private val imgBookmark = itemView.findViewById<ImageView>(R.id.btnBookmark)
         private val btnComment = itemView.findViewById<ImageView>(R.id.btnComment)
         private val btnLike = itemView.findViewById<ImageView>(R.id.likebutton)
+
         private var collapseInto = false
 
         fun bind(post:PostAndPhoto){
@@ -98,6 +101,7 @@ class MainPageAdapter(
                     true -> {
                         btnLike.setImageResource(R.drawable.heart_svgrepo_com)
                         post.post.liked = false
+                        Toast.makeText(context, "You Unlike This Photo", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -119,13 +123,13 @@ class MainPageAdapter(
                 post.post.userId, post.post.id)
 
             //set the image for each post gotten from the API using the uri
-            post.photo?.let { loadImage(context, it.url, imgPostImage) }
+           // post.photo?.let { loadImage(context, it.url, imgPostImage) }
 
             // Sets a clickListener for the cardView which launches the postDetails activity
             btnComment.setOnClickListener {
 
+                Toast.makeText(context, " add comment", Toast.LENGTH_SHORT).show()
                 listener.onRecyclerViewClickListener(it, post)
-
             }
 
             // this is used to set the click listener the body of the post to expand or collapse it
